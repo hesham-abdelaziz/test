@@ -1,0 +1,214 @@
+.holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #03a9f4;
+    transition: 0.5s;
+}
+
+.content-container{
+    position: relative;
+    width: 800px;
+    height: 500px;
+    
+}
+
+
+ .blueBg{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 40px;
+    width: 100%;
+    height: 420px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.15);
+}
+
+.blueBg .box{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.blueBg .box h2{
+    color: #fff;
+    font-size: 1.2em; /* 1.2em = 1.2 * 16  */
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.blueBg .box button{
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #fff;
+    border: 1px solid #fff;
+    color: #333;
+    font-weight: 500;
+    transition: 0.5s;
+}
+.blueBg .box button:hover{
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+.blueBg .box button:focus{
+    box-shadow: none;
+}
+
+.formbox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+    transition: 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+.formbox.active {
+    left: 50%;
+}
+
+.formbox .form{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 50px;
+    transition: 0.5s;
+}
+.formbox .signinForm {
+    transition-delay: 0.25s;
+}
+.formbox.active .signinForm{
+    left: -100%;
+    transition-delay: 0s;
+
+}
+.formbox .signupForm {
+    left: 100%;
+    transition-delay: 0s;
+
+}
+
+.formbox.active .signupForm{
+    left: 0;
+    transition-delay: 0.25s;
+
+}
+ form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formbox .form form  h3 {
+    font-size: 1.5em; /* em ==> 16px    ==>  1.5em = 1.5 * 16 */
+    color: #333;
+    margin-bottom: 20px;
+}
+.formbox .form form .forgot{
+    color: #333;
+}
+
+form input:focus , form select:focus{
+    box-shadow: none;
+}
+
+form button{
+    transition: 0.3s ease-in-out;
+    border: 1px solid #03a9f4;
+    color: #03a9f4;
+}
+form button:focus{
+    box-shadow: none;
+}
+form button:hover{
+    border: 1px solid #03a9f4;
+    color: #fff;
+    background: #03a9f4;
+    
+}
+
+input.ng-valid , select.ng-valid{
+    border: 1px solid green;
+}
+
+input.ng-pending{
+    border: 1px solid yellow;
+}
+
+
+input.ng-invalid.ng-touched , select.ng-invalid.ng-touched{
+    border: 1px solid red;
+    animation: shake 5s linear;
+}
+
+@keyframes shake {
+    0% { transform:translate(0,0) }
+    1.78571% { transform:translate(5px,0) }
+    3.57143% { transform:translate(0,0) }
+    5.35714% { transform:translate(5px,0) }
+    7.14286% { transform:translate(0,0) }
+    8.92857% { transform:translate(5px,0) }
+    10.71429% { transform:translate(0,0) }
+    100% { transform:translate(0,0) }
+  }
+
+  @media (max-width : 991px) {
+
+    .holder{
+        max-width: 400px;
+        height: 650px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .blueBg{
+        top: 0;
+        height: 650px;
+
+    }
+
+    .formbox {
+        width: 100%;
+        height: 500px;
+        top: 0;
+        box-shadow: none;
+
+    }
+
+
+    .blueBg .box {
+        position: absolute;
+        width: 100%;
+        height: 150px;
+        bottom: 0;
+    }
+
+    .signin{
+        top: 0;
+    }
+
+    .formbox.active{
+        left: 0;
+        top: 150px;
+    }
+
+
+}

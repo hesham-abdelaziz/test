@@ -1,0 +1,120 @@
+<div class="holder">
+    <div class="content-container">
+      <div class="blueBg">
+        <div class="box signin">
+          <h2>Already Have an Account ?</h2>
+          <button class="btn btn-primary signinBtn">Sign in</button>
+        </div>
+        <div class="box signup">
+          <h2>Don't Have an Account ?</h2>
+          <button class="btn btn-primary signupBtn">Sign up</button>
+        </div>
+      </div>
+      <div class="formbox">
+        <div class="form signinForm">
+          <div class="form-group">
+            <form [formGroup]="signIn" (ngSubmit)="onSubmit(signIn.value)">
+              <h3>Sign In</h3>
+              <input
+                type="text"
+                class="form-control mb-3"
+                placeholder="Email"
+                formControlName="email"
+              />
+  
+              <input
+                type="password"
+                class="form-control mb-3"
+                placeholder="Password"
+                formControlName="password"
+              />
+              <button
+                class="btn btn-outline-primary signinBtn mb-3"
+                type="submit"
+                href = "/home"
+              >
+                Login
+              </button>
+              <a href="#" class="forgot">Forgot Password? </a>
+            </form>
+          </div>
+        </div>
+  
+        <div class="form signupForm ">
+          <form [formGroup]="signUp" (ngSubmit)="onSubmit(signUp.value)">
+            <div formGroupName="basicInfo" class="w-100" >
+              <h3 class="text-center" >Sign Up</h3>
+                <select 
+                  class="form-select select-option mb-3"
+                  formControlName="accountType"
+                  (change)="onSelect($event)"
+                >
+                  <option [selected]="true" value="default">
+                    Please select account type
+                  </option>
+                  <option value="doctor">Doctor</option>
+                  <option value="patient">Patient</option>
+                </select>
+                
+              <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Username"
+              formControlName="username"
+            />
+            <input
+             type="email"
+              class="form-control mb-3" 
+              placeholder="Email" 
+              formControlName="email" />
+            <input
+              type="password"
+              class="form-control mb-3"
+              placeholder="Password"
+              formControlName="password"
+            />
+              </div>
+      
+              <div class="w-100" formGroupName ="additionalInfo" *ngIf = "signUp.get('basicInfo.accountType').value == 'doctor'">
+                 <input
+                  type="tel"
+                   class="form-control mb-3"
+                   placeholder="Phone"
+                   formControlName="phone"
+                   >
+                   <input 
+                   type="text"
+                    class="form-control mb-3"
+                    placeholder="Address"
+                    formControlName="address">
+  
+                    <select
+                    class="form-select"
+                    formControlName ="spec"
+                    >
+                    <option [selected] = true value="default">Please Select a specification</option>
+                    <option value="spec1">Spec 1</option>
+                    <option value="spec2">Spec 2</option>
+                    <option value="spec3">Spec 3</option>
+                    <option value="spec4">Spec 4</option>
+                    <option value="spec5">Spec 5</option>
+                    <option value="spec6">Spec 6</option>
+                    <option value="spec7">Spec 7</option>
+                    <option value="spec8">Spec 8</option>
+                    <option value="spec9">Spec 9</option>
+                   </select>
+              </div>
+              <button
+                class="btn btn-outline-primary signinBtn mb-3 mt-3"
+                type="submit"
+                
+              >
+                Register
+              </button>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,10 @@
+
+<div class="loader" *ngIf = "isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+
+<div *ngIf = "!isLoading">
+  <router-outlet></router-outlet>
+  
+</div>
